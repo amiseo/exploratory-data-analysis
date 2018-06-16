@@ -1,2 +1,2 @@
-# exploratory-data-analysis
+# Exploratory Data Analysis
 Course exploratory data analysis - DataCamp

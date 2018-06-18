@@ -1,3 +1,4 @@
+library(dplyr)
 library(ggplot2)
 
 cars <- read.csv("https://assets.datacamp.com/production/course_1796/datasets/cars04.csv")
@@ -35,4 +36,6 @@ common_cyl <- filter(cars, ncyl %in% c(4,6,8))
 ggplot(common_cyl, aes(x = as.factor(ncyl), y = city_mpg)) +
   geom_boxplot()
 
-
+# Create overlaid density plots for same data
+ggplot(common_cyl, aes(x = city_mpg, fill = as.factor(ncyl))) +
+  geom_density(alpha = .3)

@@ -70,5 +70,29 @@ cars %>%
 # Create hist of horsepwr with binwidth of 60
 cars %>% 
   ggplot(aes(horsepwr)) +
-  geom_histogram(binwidth = 30) +
+  geom_histogram(binwidth = 60) +
   ggtitle("Horse Power - Binwidth 30")
+
+# Construct box plot of msrp
+cars %>%
+  ggplot(aes(x = 1, y = msrp)) +
+  geom_boxplot()
+
+# Exclude outliers from data
+cars_no_out <- cars %>%
+  filter(msrp < 100000)
+
+# Construct box plot of msrp using the reduced dataset
+cars_no_out %>%
+  ggplot(aes(x = 1, y = msrp)) +
+  geom_boxplot()
+
+# Create plot of city_mpg
+cars %>%
+  ggplot(aes(x = 1, y = city_mpg)) +
+  geom_boxplot()
+
+# Create plot of width
+cars %>% 
+  ggplot(aes(x = width)) +
+  geom_density()

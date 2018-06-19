@@ -39,3 +39,36 @@ ggplot(common_cyl, aes(x = as.factor(ncyl), y = city_mpg)) +
 # Create overlaid density plots for same data
 ggplot(common_cyl, aes(x = city_mpg, fill = as.factor(ncyl))) +
   geom_density(alpha = .3)
+
+# Create hist of horsepwr
+cars %>%
+  ggplot(aes(horsepwr)) +
+  geom_histogram() +
+  ggtitle("Horsepower Distribution")
+
+# Create hist of horsepwr for affordable cars
+cars %>% 
+  filter(msrp < 25000) %>%
+  ggplot(aes(horsepwr)) +
+  geom_histogram() +
+  xlim(c(90, 550)) +
+  ggtitle("Horsepower distribtion for msrp < 25000")
+
+# Create hist of horsepwr with binwidth of 3
+cars %>%
+  ggplot(aes(horsepwr)) +
+  geom_histogram(binwidth = 3) +
+  ggtitle("Horse Power - Binwidth 3")
+
+# Create hist of horsepwr with binwidth of 30
+cars %>%
+  ggplot(aes(horsepwr)) +
+  geom_histogram(binwidth = 30) +
+  ggtitle("Horse Power - Binwidth 30")
+
+
+# Create hist of horsepwr with binwidth of 60
+cars %>% 
+  ggplot(aes(horsepwr)) +
+  geom_histogram(binwidth = 30) +
+  ggtitle("Horse Power - Binwidth 30")
